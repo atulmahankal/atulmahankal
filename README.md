@@ -191,7 +191,7 @@
       decoding="async"
       data-nimg="1"
       style="color: transparent"
-      src="https://nodejs.org/static/images/logo.svg"
+      src="https://w7.pngwing.com/pngs/452/24/png-transparent-js-logo-node-logos-and-brands-icon.png"
     />
   </a>
 </p>
