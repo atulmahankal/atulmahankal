@@ -15,6 +15,7 @@ const dynamicRoutes = names;  //.map(name => `/names/${name}`)
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: '/atulmahankal', // Set the base for subdirectory
   plugins: [
     react(),
     Sitemap({
