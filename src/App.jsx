@@ -1,10 +1,10 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import { routes } from './routes';
 
 function App() {
   return (
     <>
-      <BrowserRouter basename="/atulmahankal">
+      <HashRouter basename="/">
         <Routes>
           { routes.map((route, index) => (
             route.component && (
@@ -16,7 +16,7 @@ function App() {
             )
           )) }
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </>
   )
 }

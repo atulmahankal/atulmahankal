@@ -11,7 +11,7 @@ const names = [
   '/photography',
   '/contact',
 ]
-const dynamicRoutes = names;  //.map(name => `/names/${name}`)
+const dynamicRoutes = names.map(name => `/#/${name}`)
 
 // https://vitejs.dev/config/
 export default defineConfig({
