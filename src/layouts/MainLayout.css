@@ -1,0 +1,10 @@
+/* Custom Scrollbar for Light/Dark Mode */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(107, 114, 128, 0.7);
+  /* Gray-600 */
+  border-radius: 9999px;
+}

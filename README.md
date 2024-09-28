@@ -4,21 +4,21 @@
 <h3 align="center">A passionate fullstack developer from India</h3>
 
 <h4>
-  visit at <a href="http://mahankals.ml" target="blank">http://mahankals.ml</a>
+  visit at <a href="https://atulmahankal.github.io/atulmahankal/" target="blank">https://atulmahankal.github.io/atulmahankal/</a>
 </h4>
-🌱 I’m currently learning **Laravel, CodeIgnitor, Python, Node**
 
 <p>&nbsp;</p>
-<p align="left">
-  <img
-    src="https://komarev.com/ghpvc/?username=atulmahankal&label=Profile%20views&color=0e75b6&style=flat"
-    alt="atulmahankal"
-  />
-</p>
 
-<!-- <p align="left"> <a href="https://twitter.com/atulmahankal" target="blank"><img src="https://img.shields.io/twitter/follow/atulmahankal?logo=twitter&style=for-the-badge" alt="atulmahankal" /></a> </p>
+<img src="https://komarev.com/ghpvc/?username=atulmahankal&label=Profile%20views&color=0e75b6&style=flat" />
 
-<p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=atulmahankal" alt="atulmahankal" /></a> </p> -->
+<!-- <a href="https://twitter.com/atulmahankal" target="blank"><img src="https://img.shields.io/twitter/follow/atulmahankal?logo=twitter&style=for-the-badge" alt="atulmahankal" /></a> -->
+
+<!-- <p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=atulmahankal" alt="atulmahankal" /></a> </p> -->
+
+<!-- <img align="center" src="https://github-readme-stats.vercel.app/api/top-langs?username=atulmahankal&show_icons=true&locale=en&layout=compact" alt="atulmahankal" /> -->
+
+<!-- <img align="center" src="https://github-readme-stats.vercel.app/api?username=atulmahankal&show_icons=true&locale=en" alt="atulmahankal" /> -->
+
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
@@ -75,8 +75,16 @@
     />
   </a>
   <a href="https://getbootstrap.com" target="_blank" rel="noreferrer">
+    <img style="color:white"
+      src="https://raw.githubusercontent.com/devicons/devicon/refs/heads/master/icons/bootstrap/bootstrap-original.svg"
+      alt="bootstrap"
+      width="40"
+      height="40"
+    />
+  </a>
+  <a href="https://tailwindcss.com/" target="_blank" rel="noreferrer">
     <img
-      src="https://raw.githubusercontent.com/devicons/devicon/master/icons/bootstrap/bootstrap-plain-wordmark.svg"
+      src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg"
       alt="bootstrap"
       width="40"
       height="40"
@@ -136,7 +144,7 @@
   </a>
   <a href="https://laravel.com/" target="_blank" rel="noreferrer">
     <img
-      src="https://raw.githubusercontent.com/devicons/devicon/master/icons/laravel/laravel-plain-wordmark.svg"
+      src="https://avatars.githubusercontent.com/u/958072?s=48&v=4"
       alt="laravel"
       width="40"
       height="40"
@@ -154,14 +162,6 @@
     <img
       src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg"
       alt="mysql"
-      width="40"
-      height="40"
-    />
-  </a>
-  <a href="https://www.photoshop.com/en" target="_blank" rel="noreferrer">
-    <img
-      src="https://raw.githubusercontent.com/devicons/devicon/master/icons/photoshop/photoshop-line.svg"
-      alt="photoshop"
       width="40"
       height="40"
     />
@@ -195,7 +195,3 @@
     />
   </a>
 </p>
-
-<!-- <p><img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=atulmahankal&show_icons=true&locale=en&layout=compact" alt="atulmahankal" /></p> -->
-
-<!-- <p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=atulmahankal&show_icons=true&locale=en" alt="atulmahankal" /></p> -->

@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.loading-blink {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  color: #333;
+  filter: blur(3px);
+  animation: blink 1s infinite alternate;
+}
+
+/* Blinking animation */
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.2;
+  }
+}
