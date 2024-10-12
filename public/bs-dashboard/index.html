@@ -1,0 +1,690 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta http-equiv="refresh" content="600">
+
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<!-- Favicons -->
+		<link rel="icon" href="https://getbootstrap.com/docs/5.1/assets/img/favicons/favicon.ico">
+
+		<!-- Bootstrap CSS -->
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- Bootstrap Icons -->
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+
+		<!-- Google Icons -->
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+		<!-- dataTables CSS -->
+		<link href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css" rel="stylesheet">
+		<link href="https://cdn.datatables.net/select/1.3.3/css/select.dataTables.min.css" rel="stylesheet">
+		<link href="https://cdn.datatables.net/buttons/2.1.0/css/buttons.dataTables.min.css" rel="stylesheet">
+
+		<title>Bootstrap Template</title>
+
+		<style>
+			/* Menu hower style */
+			.nav-item a {
+				position: relative;
+			}
+
+			.nav-item a::before {
+				content: "";
+				position: absolute;
+				background: #18dcff;
+				transition: .3s;
+				opacity: 0;
+			}
+
+			.nav-item>a:hover::before {
+				opacity: 1;
+			}
+
+			#sidebar .nav-item a::before {
+				width: 6px;
+				height: 100%;
+				left: 0;
+				top: 0;
+			}
+
+			#topbar .nav-item a::before {
+				height: 6px;
+				width: 100%;
+				left: 0;
+				bottom: 0;
+			}
+
+			#sidebar .nav-item a *:nth-last-child(2) {
+				display: inline-flex;
+				vertical-align: middle;
+				font-size: 22px !important;
+				padding: 0.5rem!important;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="d-flex bd-highlight vh-100 bg-white">
+			<div
+				class="collapse d-md-flex flex-column bd-highlight bg-black bg-opacity-25 border vh-100 flex-shrink-0 w-auto overflow-auto"
+				id="sidebar">
+				<!-- sidebar start -->
+				<div class="bd-highlight text-center text-lg-start">
+					<a href="." class="dropdown-item text-decoration-none my-2 fs-3 bg-transparent" data-bs-toggle="tooltip"
+						data-bs-placement="right" title="Logo">
+						<i class="bi bi-bootstrap-fill"></i>
+						<span class="d-block d-md-none d-lg-inline"> Menus</span>
+					</a>
+				</div>
+				<div class="p-0 bd-highlight">
+					<ul class="nav nav-pills nav-flush flex-column mb-auto text-center text-lg-start list-unstyled border-top">
+						<li class="nav-item">
+							<a href="#" class="dropdown-item text-decoration-none" data-bs-toggle="tooltip"
+								data-bs-placement="right" title="Home">
+								<i class="bi bi-house-door"></i>
+								<span class="d-block d-md-none d-lg-inline"> Home</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="#" class="dropdown-item text-decoration-none" data-bs-toggle="tooltip"
+								data-bs-placement="right" title="Home">
+								<i class="material-icons">face</i>
+								<span class="d-block d-md-none d-lg-inline"> Material Icons</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="#" class="dropdown-item text-decoration-none" data-bs-toggle="tooltip"
+								data-bs-placement="right" title="Dashboard">
+								<i class="bi bi-speedometer2"></i>
+								<span class="d-block d-md-none d-lg-inline"> Dashboard</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="#" class="dropdown-item text-decoration-none collapsed"
+								data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false" title="Orders">
+								<i class="bi bi-cart3"></i>
+								<span class="d-block d-lg-inline"> Orders</span>
+							</a>
+							<div class="collapse rounded-bottom shadow bg-white bg-opacity-50" id="orders-collapse">
+								<ul class="nav-item btn-toggle-nav list-unstyled fw-normal py-1 small shadow mb-1">
+									<li class="nav-item mx-2">
+										<a href="#" class="dropdown-item rounded">New</a>
+									</li>
+									<li class="nav-item mx-2">
+										<a href="#" class="dropdown-item rounded active">Processed</a>
+									</li>
+									<li class="nav-item mx-2">
+										<a href="#" class="dropdown-item rounded">Shipped</a>
+									</li>
+									<li class="nav-item mx-2">
+										<a href="#" class="dropdown-item rounded">Returned</a>
+									</li>
+								</ul>
+							</div>
+						</li>
+						<li class="nav-item">
+							<a href="#" class="dropdown-item text-decoration-none collapsed"
+								data-bs-toggle="collapse" data-bs-target="#products-collapse" aria-expanded="false" title="Products">
+								<i class="bi bi-grid"></i>
+								<span class="d-block d-md-none d-lg-inline"> Products</span>
+							</a>
+							<div class="collapse rounded-bottom shadow bg-white bg-opacity-50" id="products-collapse">
+								<ul class="nav-item btn-toggle-nav list-unstyled fw-normal py-1 small shadow mb-1">
+									<li class="nav-item mx-2">
+										<a href="#" class="dropdown-item rounded">Product 1</a>
+									</li>
+									<li class="nav-item mx-2">
+										<a href="#" class="dropdown-item rounded">Product 2</a>
+									</li>
+									<li class="nav-item mx-2">
+										<a href="#" class="dropdown-item rounded">Product 3</a>
+									</li>
+									<li class="nav-item mx-2">
+										<a href="#" class="dropdown-item rounded">Product 4</a>
+									</li>
+								</ul>
+							</div>
+						</li>
+						<li class="nav-item">
+							<a href="#" class="dropdown-item border-bottom text-decoration-none" data-bs-toggle="tooltip"
+								data-bs-placement="right" title="Customers">
+								<i class="bi bi-people"></i>
+								<span class="d-block d-md-none d-lg-inline"> Customers</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div class="mt-auto p-2 bd-highlight bg-transparent text-center">
+					<a href="#" class="p-2 fs-5 dropdown-item border-top collapsed p-3 text-decoration-none bg-transparent"
+						data-bs-toggle="dropdown" id="#user-collapse" aria-expanded="false" title="Users">
+						<!-- <img src="https://github.com/mdo.png" alt="mdo" width="24" height="24" class="rounded-circle"> -->
+						<i class="bi bi-person-circle"></i>
+						<span class="dropdown-toggle float-end"></span>
+						<span class="d-block d-md-none d-lg-inline"> User</span>
+					</a>
+					<ul class="dropdown-menu text-small shadow" aria-labelledby="user-collapse">
+						<li><a class="dropdown-item" href="#">New project...</a></li>
+						<li><a class="dropdown-item" href="#">Settings</a></li>
+						<li><a class="dropdown-item" href="#">Profile</a></li>
+						<li>
+							<hr class="dropdown-divider">
+						</li>
+						<li><a class="dropdown-item" href="#">Sign out</a></li>
+					</ul>
+				</div>
+			</div><!-- sidebar end -->
+
+			<div class="w-100 bd-highlight d-flex flex-column bd-highlight vh-100 border-left">
+				<nav id="topbar" class="navbar navbar-expand-md navbar-lite text-lite sticky-top shadow bg-white">
+					<!-- Topbar started -->
+					<div class="container-fluid">
+						<a href="#" class="d-md-none border-0 border-dark rounded p-0 text-dark fs-2" data-bs-toggle="collapse"
+							data-bs-target="#sidebar" aria-expanded="false">
+							<!-- <span class="navbar-toggler-icon"></span> -->
+							<i class="bi bi-list"></i>
+						</a>
+						<a class="navbar-brand mx-2 text-dark" href="#">Page Title</a>
+						<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+							data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+							aria-label="Toggle navigation">
+							<i class="bi bi-three-dots-vertical"></i>
+						</button>
+						<div class="collapse navbar-collapse" id="navbarSupportedContent">
+							<form class="d-flex me-auto">
+								<div class="input-group">
+									<input type="text" class="form-control bg-light border small" placeholder="Search for..."
+										aria-label="Search" aria-describedby="basic-addon2">
+									<div class="input-group-append">
+										<button class="btn btn-primary" type="button">
+											<i class="bi bi-search"></i>
+										</button>
+									</div>
+								</div>
+							</form>
+							<!-- <ul class="navbar-nav me-auto mb-2 mb-lg-0"> -->
+							<ul class="navbar-nav nav-pills">
+								<li class="nav-item">
+									<a class="dropdown-item p-2 rounded" aria-current="page" href="#">Home</a>
+								</li>
+								<li class="nav-item">
+									<a class="dropdown-item p-2 rounded disabled">Disabled</a>
+								</li>
+								<li class="nav-item dropdown">
+									<a class="dropdown-item p-2 rounded dropdown-toggle" href="#" id="navbarDropdown" role="button"
+										data-bs-toggle="dropdown" aria-expanded="false">
+										Dropdown
+									</a>
+									<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+										<li><a class="dropdown-item" href="#">New Action</a></li>
+										<li><a class="dropdown-item" href="#">Another action</a></li>
+										<li>
+											<hr class="dropdown-divider">
+										</li>
+										<li><a class="dropdown-item" href="#">Something else here, once again n again n again.</a></li>
+									</ul>
+								</li>
+								<li class="nav-item">
+									<a href="#" class="dropdown-item p-2 rounded" data-bs-toggle="modal"
+										data-bs-target="#exampleModal">Modal</a>
+								</li>
+								<li class="nav-item">
+									<!-- <a href="#" class="dropdown-item p-2 rounded" id="liveToastBtn">Toast</a> -->
+									<a href="#" class="dropdown-item p-2 rounded toast-btn" data-color="success" data-time=2000
+										data-message="Hello, world! This is a toast message.">Toast</a>
+								</li>
+								<li class="nav-item">
+									<a class="dropdown-item p-2 rounded" href="#">Link</a>
+								</li>
+								<li class="nav-item me-3 border-start ps-2">
+									<a class="dropdown-item p-2 rounded position-relative" href="#">
+										<i class="bi bi-bell-fill"></i>
+										<span class="position-absolute bot-0 start-100 translate-middle badge rounded-pill bg-danger">
+											3+
+										</span>
+									</a>
+								</li>
+								<li class="nav-item me-3">
+									<a class="dropdown-item p-2 rounded position-relative" href="#">
+										<i class="bi bi-envelope-fill"></i>
+										<span class="position-absolute bot-0 start-100 translate-middle badge rounded-pill bg-danger">
+											7
+										</span>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</nav><!-- Topbar end -->
+				<div class="p-2 pt-4 bd-highlight overflow-auto">
+					<!-- page containt start -->
+
+					<table id="example" class="data-table display border table table-bordered border-2 w-100">
+						<thead>
+							<tr>
+								<th></th>
+								<th class="not-exort">#</th>
+								<th>Name</th>
+								<th>Position</th>
+								<th>Office</th>
+								<th>Extn.</th>
+								<th>Start date</th>
+								<th>Salary</th>
+							</tr>
+						</thead>
+					</table>
+
+
+
+				</div><!-- page containt end -->
+				<div class="mt-auto p-2 bd-highlight bg-white bg-opacity-50 text-center border-top">
+					<!-- footer start -->
+					Copyright © Your Website 2021
+				</div><!-- footer end -->
+			</div>
+		</div>
+
+		<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<!-- Model start -->
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						Sample body text.
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-primary">Save changes</button>
+					</div>
+				</div>
+			</div>
+		</div><!-- Model end -->
+
+		<div aria-live="polite" aria-atomic="true" class="position-relative">
+			<!-- toast start -->
+			<div class="toast-container position-fixed bottom-0 end-0 p-3">
+				<div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+					<div class="toast-header">
+						<!-- <img src="https://getbootstrap.com/docs/5.1/assets/img/favicons/favicon.ico" class="rounded me-2" alt="logo"> -->
+						<i class="bi bi-bootstrap-fill text-primary fs-5"></i>
+						<strong class="me-auto">Bootstrap</strong>
+						<small>11 mins ago</small>
+						<button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+					</div>
+					<div class="toast-body">
+						Heads up, toasts will stack automatically
+					</div>
+				</div>
+				<div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+					<div class="toast-header">
+						<i class="bi bi-bootstrap-fill text-primary fs-5"></i>
+						<strong class="me-auto">Bootstrap</strong>
+						<small class="text-muted">2 seconds ago</small>
+						<button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+					</div>
+					<div class="toast-body">
+						See? Just like this.
+					</div>
+				</div>
+
+				<div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-autohide="false"
+					data-animation=true data-delay="600">
+					<div class="toast-header">
+						<i class="bi bi-bootstrap-fill text-primary fs-5"></i>
+						<strong class="me-auto">Bootstrap</strong>
+						<small class="text-muted">just now</small>
+						<button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+					</div>
+					<div class="toast-body">
+						Hello, world! This is a toast message.
+					</div>
+				</div>
+			</div>
+		</div><!-- toast end -->
+
+		<!-- Bootstrap Bundle with Popper -->
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+		<!-- jquery -->
+		<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+
+		<!-- dataTables js -->
+		<script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+		<script src="https://cdn.datatables.net/select/1.3.3/js/dataTables.select.min.js"></script>
+		<script src="https://cdn.datatables.net/buttons/2.1.0/js/dataTables.buttons.min.js"></script>
+
+		<script src="https://cdn.datatables.net/buttons/2.1.0/js/buttons.html5.min.js">// Base Button (copy & CSV)</script>
+		<script
+			src="https://cdn.datatables.net/buttons/2.1.0/js/buttons.colVis.min.js">// column visiblility Button (copy & CSV)</script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js">// Excel Export</script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js">// PDF Button</script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js">// PDF Export</script>
+		<script src="https://cdn.datatables.net/buttons/2.1.0/js/buttons.print.min.js">// PDF Export</script>
+
+		<script src="datatable.js"></script>
+
+		<script>// toast script
+			const divs = document.querySelectorAll('.toast-btn');
+
+			divs.forEach(el => el.addEventListener('click', event => {
+				var message = event.target.dataset.message;
+				var color = event.target.dataset.color;
+				var time = event.target.dataset.time;
+				displayNotification(message, color.toLowerCase(), time);
+			}));
+
+			var toast_id = 1;
+
+			function getContainer() {
+				var toast_container = document.getElementById('toast-container');
+				if (toast_container != null) {
+					return toast_container;
+				}
+
+				toast_container = document.createElement("div");
+				toast_container.id = "toast-container";
+				toast_container.classList = "toast-container position-fixed bottom-0 end-0 p-3";
+				toast_container.setAttribute("style", "z-index: 11");
+				document.body.appendChild(toast_container);
+				return toast_container;
+			}
+
+			function createToast(color, color_text, id) {
+				var newDiv = document.createElement("div");
+				newDiv.setAttribute("role", "alert");
+				newDiv.setAttribute("aria-live", "assertive");
+				newDiv.setAttribute("aria-atomic", "true");
+				newDiv.classList.add('toast');
+				newDiv.classList.add(color);
+				newDiv.classList.add(color_text);
+				newDiv.id = "toast-" + id;
+				return newDiv;
+			}
+
+			function createHeader(header, id) {
+				var newDiv = document.createElement("div");
+				newDiv.classList.add('toast-header');
+				newDiv.appendChild('<i class="bi bi-bootstrap-fill text-primary fs-5"></i>');
+				newDiv.appendChild('<strong class="me-auto">Bootstrap</strong>');
+				newDiv.appendChild('<i class="bi bi-bootstrap-fill text-primary fs-5"></i>');
+				return newDiv;
+			}
+
+			function createMessage(message, id) {
+				var newDiv = document.createElement("div");
+				newDiv.id = "message-" + id;
+				newDiv.innerHTML = message;
+				return newDiv;
+			}
+
+			function createCloseButton(id) {
+				var newButton = document.createElement("button")
+				newButton.classList.add("btn-close");
+				newButton.classList.add("me-2");
+				newButton.classList.add("m-auto");
+				newButton.setAttribute("type", "button");
+				newButton.setAttribute("data-bs-dismiss", "toast");
+				newButton.setAttribute("aria-label", "Close");
+				return newButton;
+			}
+
+			function createSnack(message, id) {
+				var newDiv = document.createElement("div");
+				newDiv.classList.add("toast-body");
+				newDiv.classList.add("d-flex");
+				newDiv.appendChild(createMessage(message, id));
+				newDiv.appendChild(createCloseButton(id));
+				return newDiv;
+			}
+
+			function displayNotification(message, color, time, header) {
+				var color_text = 'text-white';
+
+				switch (color) {
+					case 'grey':
+					case 'secondary':
+						color = 'bg-secondary';
+						color_text = 'text-white';
+						break;
+					case 'green':
+					case 'success':
+						color = 'bg-success';
+						color_text = 'text-white';
+						break;
+					case 'red':
+					case 'danger':
+						color = 'bg-danger';
+						color_text = 'text-white';
+						break;
+					case 'warning':
+					case 'yellow':
+						color = 'bg-warning';
+						color_text = 'text-white';
+						break;
+					case 'white':
+					case 'light':
+						color = 'bg-light';
+						color_text = 'text-dark';
+						break;
+					default:
+						color = 'bg-primary';
+						color_text = 'text-white';
+						break;
+				};
+
+				if (time == null) {
+					// time = 5000;
+					hide = false;
+				} else {
+					time = Number(time);
+					hide = true;
+				}
+
+				if (header == null) {
+					hide = false;
+				}
+
+				var option = {
+					delay: time,
+					autohide: hide
+				};
+
+				var toast_container = getContainer();
+				toast = createToast(color, color_text, toast_id);
+				toast_container.appendChild(toast);
+				toast.appendChild(createSnack(message, toast_id));
+
+				var toast = new bootstrap.Toast(toast, option);
+				toast.show();
+
+				toast_id = toast_id + 1;
+			}
+		</script>
+		<script>// datatable script
+			$(document).ready(function () {
+				$('.active').closest('.collapse').addClass('show');	//expand active sub item menu
+
+				$(".dropdown-item[data-bs-toggle='collapse']").each(function () {	// add dropdown icon in collapse menu.
+					$(this).prepend('<span class="dropdown-toggle float-end"></span>');
+				});
+
+				var table = $('#example').DataTable({
+					"ajax": "objects.json",
+					"pagingType": 'full_numbers',
+					"filter": true,
+					"indexCol": true,
+					"ordering": true,
+					"order": [[1, 'asc']],
+					dom: "Bilrtp",
+					buttons: [
+						{
+							text: 'Show / Hide',
+							extend: 'colvis'
+						},
+						{
+							className: 'bi bi-check2-all',
+							text: ' Select All',
+							attr: {
+								title: 'Select All',
+								id: 'SelectAll'
+							},
+							action: function (e) {
+								selectAll(e);
+							}
+						},
+						{
+							extend: 'spacer',
+							style: 'bar'
+						},
+						{
+							className: 'bi bi-plus-circle',
+							text: ' New',
+							// text: function ( dt, idx, title ) {
+							//     return '<i class="fa fa-plus"></i> New';
+							// },
+							action: function (e) {
+								console.log('New Button prassed.');
+							}
+						},
+						{
+							className: 'bi bi-trash',
+							text: ' Delete',
+							// text: function ( dt, idx, title ) {
+							//     return '<i class="fa fa-plus"></i> New';
+							// },
+							action: function () {
+								del();
+							}
+						},
+						{
+							extend: 'spacer',
+							style: 'bar'
+						},
+						{
+							extend: 'copy',
+							exportOptions: {
+								columns: [1, ':visible'],
+								// columns: ':visible',
+								// columns: [':not(:first-child)',':visible'],
+								// columns: ':visible:not(:first-child)',
+							}
+						},
+						'csv',
+						'excel',
+						{
+							text: 'Excel visible',
+							extend: 'excel',
+							exportOptions: {
+								columns: ':visible'
+							}
+						},
+						'pdf',
+						'print'
+					],
+					language: {
+						"loadingRecords": "<i class='fa fa-spinner fa-pulse fa-3x fa-fw'></i>Loading records ...",
+						"processing": "<i class='fa fa-spinner fa-pulse fa-3x fa-fw'></i>Processing data ...",
+						"lengthMenu": "Display _MENU_ records per page.",
+					},
+					"columns": [
+						{
+							"data": null,
+							render: function () {
+								return '';
+							}
+						},
+						{ "data": "id", visible: false, class: "text-end" },
+						{ "data": "name" },
+						{ "data": "position" },
+						{ "data": "office" },
+						{ "data": "extn" },
+						{ "data": "start_date" },
+						{ "data": "salary" }
+					],
+					"multiSelect": true,
+					columnDefs: [{
+						orderable: false,
+						className: 'select-checkbox',
+						targets: 0
+					}],
+					select: {
+						style: 'multi',
+						selector: 'td:first-child'
+					}
+				});
+
+				$('.data-table').on('init.dt', function (e, settings, json) {
+					var tableID = $('.data-table').DataTable().table().node().id;
+					var table = $('#' + tableID).DataTable();
+
+					// Align Butons right
+					$('#' + tableID + '_wrapper').find('.dt-buttons').css('width', 'fit-content');
+					$('#' + tableID + '_wrapper').find('.dt-buttons').css('margin', 'auto');
+					$('#' + tableID + '_wrapper').find('.dt-buttons').css('float', 'none');
+
+					// Info (showing) position
+					$('#' + tableID + '_info').css('padding-top', '0');
+
+					// lenth (Display) position
+					$('#' + tableID + '_length').css('float', 'right');
+					$('#' + tableID + '_length').css('clear', 'none');
+
+					// Table paddiing
+					$('#' + tableID).css('margin-top', '50px');
+					$('#' + tableID).css('margin-bottom', '25px');
+
+					// Border on pageinate
+					$('#' + tableID + '_paginate').css('border', '1px solid black');
+					$('#' + tableID + '_paginate').css('padding-bottom', '5px');
+					$('#' + tableID + '_paginate').css('width', 'fit-content');
+					$('#' + tableID + '_paginate').css('margin', 'auto');
+					$('#' + tableID + '_paginate').css('float', 'none');
+
+					$('#' + tableID + 'thead th').addClass('select-checkbox');
+
+					// if(table.context[0].oInit.filter){
+					//     table.order( [[3, 'asc' ],[2, 'asc' ],[1, 'asc' ]] ).draw();
+					//     $('th').removeClass('sorting').removeClass('sorting_asc').removeClass('sorting_desc');
+					// }
+				});
+
+
+				table.on('order.dt search.dt', function () { // show row number
+					table.column(1, { search: 'applied', order: 'applied' }).nodes().each(function (cell, i) {
+						cell.innerHTML = i + 1;
+					});
+				}).draw();
+
+				function selectAll(e) {
+					console.log($('#SelectAll').text());
+					if ($('#SelectAll').text() == ' Select All') {
+						table.rows().select();
+						$('#SelectAll').text(' Deselect All')
+					} else {
+						table.rows().deselect();
+						$('#SelectAll').text(' Select All')
+					}
+					// if ($(this).is( ":checked" )) {
+					//     table.rows().select();
+					// } else {
+					//     table.rows().deselect();
+					// }
+				}
+
+				function del() {// Delete Selected Row
+					$.each(table.rows('.selected').data(), function () {
+						console.log('Deletig record for', this["name"]);
+					});
+				}
+			});
+		</script>
+	</body>
+
+</html>
