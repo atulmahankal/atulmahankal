@@ -11,14 +11,15 @@
 
 <img src="https://komarev.com/ghpvc/?username=atulmahankal&label=Profile%20views&color=0e75b6&style=flat" />
 
-<!-- <a href="https://twitter.com/atulmahankal" target="blank"><img src="https://img.shields.io/twitter/follow/atulmahankal?logo=twitter&style=for-the-badge" alt="atulmahankal" /></a> -->
-
-<!-- <p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=atulmahankal" alt="atulmahankal" /></a> </p> -->
-
-<!-- <img align="center" src="https://github-readme-stats.vercel.app/api/top-langs?username=atulmahankal&show_icons=true&locale=en&layout=compact" alt="atulmahankal" /> -->
-
-<!-- <img align="center" src="https://github-readme-stats.vercel.app/api?username=atulmahankal&show_icons=true&locale=en" alt="atulmahankal" /> -->
-
+<p align="left">
+  <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=atulmahankal" alt="atulmahankal" /></a>
+</p>
+<p>
+  <img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=atulmahankal&show_icons=true&locale=en&layout=compact" alt="atulmahankal" />
+</p>
+<p>&nbsp;
+  <img align="center" src="https://github-readme-stats.vercel.app/api?username=atulmahankal&show_icons=true&locale=en" alt="atulmahankal" />
+</p>
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
