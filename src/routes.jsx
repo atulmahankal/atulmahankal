@@ -34,7 +34,7 @@ export const routes = [
   {
     path: '/aboutme',
     title: 'About Me',
-    component: null, //AboutMePage,
+    component: (props) => <ErrorPage errorCode="Coming Soon" errorMessage="This page is under development" {...props} />,
     icon: <AiOutlineSolution />,
     metas: {
       name: {
@@ -72,7 +72,7 @@ export const routes = [
   {
     path: '/projects',
     title: 'Projects',
-    component: null, //ProjectsPage,
+    component: (props) => <ErrorPage errorCode="Coming Soon" errorMessage="This page is under development" {...props} />,
     icon: <FaHandshake />,
     metas: {
       name: {
@@ -91,7 +91,7 @@ export const routes = [
   {
     path: '/applications',
     title: 'Applications',
-    component: null, //ProjectsPage,
+    component: (props) => <ErrorPage errorCode="Coming Soon" errorMessage="This page is under development" {...props} />,
     icon: <FaHandshake />,
     metas: {
       name: {
@@ -110,7 +110,7 @@ export const routes = [
   {
     path: '/photography',
     title: 'Photography',
-    component: null, //PhotographyPage,
+    component: (props) => <ErrorPage errorCode="Coming Soon" errorMessage="This page is under development" {...props} />,
     icon: <BiSolidCamera />,
     metas: {
       name: {

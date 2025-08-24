@@ -4,6 +4,7 @@ import axios from 'axios';
 
 const ExperiencePage = () => {
   const [sheetData, setSheetData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const env = import.meta.env;
   const apiKey = env.VITE_GCP_API_KEY;
@@ -13,6 +14,7 @@ const ExperiencePage = () => {
 
   const fetchSheetData = async () => {
     try {
+      setIsLoading(true);
       const response = await axios.get(`${baseURL}`);
 
       // Exclude the first row (typically headers) using .slice(1)
@@ -27,6 +29,10 @@ const ExperiencePage = () => {
       setSheetData(dataWithoutHeaders);
     } catch (error) {
       console.error('Error fetching sheet data:', error);
+      // Set empty array on error to stop loading
+      setSheetData([]);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -35,23 +41,28 @@ const ExperiencePage = () => {
     const cachedData = sessionStorage.getItem('sheetData');
     if (cachedData) {
       setSheetData(JSON.parse(cachedData)); // Parse the cached data from JSON
-      // setLoading(false); // Stop loading
+      setIsLoading(false); // Stop loading
     } else {
       fetchSheetData(); // Fetch data if not in sessionStorage
     }
-    // fetchSheetData(); // Fetch data when the component loads
   }, []);
 
   return (
     <MainLayout>
       <div className="flex justify-between w-full">
         <ol>
-          { sheetData.length === 0 ? (
+          { isLoading ? (
             <li className="loading-blink">
               <p className='border-b'><b>XXXXXXXXXXXX</b>, XXXXX</p>
               <p className='pb-3'>
                 <small>XXXXX XXXX - XXXXX XXXX</small><br />
                 XXXXXXXXXXXXXXX
+              </p>
+            </li>
+          ) : sheetData.length === 0 ? (
+            <li>
+              <p className='border-b text-center py-4'>
+                <b>No experience data available</b>
               </p>
             </li>
           ) : (

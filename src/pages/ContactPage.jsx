@@ -237,20 +237,7 @@ const ContactPage = () => {
           </motion.div>
         </div>
 
-        {/* Response Time Notice */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.8 }}
-          className="mt-16 text-center"
-        >
-          <div className="inline-flex items-center px-6 py-3 rounded-full bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-700">
-            <div className="w-2 h-2 bg-green-500 rounded-full mr-3 animate-pulse"></div>
-            <span className="text-green-700 dark:text-green-400 font-medium">
-              Typically responds within 24 hours
-            </span>
-          </div>
-        </motion.div>
+        
       </div>
     </MainLayout>
   );
