@@ -35,11 +35,11 @@ const Navbar = ({ toggleSidebar }) => {
         )) }
       </Helmet>
 
-      <nav className="fixed top-0 z-50 w-full px-3 py-3 lg:px-5 lg:pl-3 flex items-center justify-between">
+      <nav className="fixed top-0 z-50 w-full px-3 py-3 lg:px-5 lg:pl-3 flex items-center justify-between bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm border-b border-gray-200 dark:border-gray-700 shadow-sm">
         {/* supports-backdrop-blur:bg-slate-50/75 bg-slate-900/75 */ }
         <div className="flex items-center justify-between rounded-md">
           <a href="/" className="flex ms-2 sm:me-24">
-            <span className="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap hidden sm:block">Freelancer Atul</span>
+            <span className="self-center text-xl font-bold sm:text-2xl whitespace-nowrap hidden sm:block bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Atul Mahankal</span>
           </a>
           <button type="button" onClick={ toggleSidebar } className="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
             <span className="sr-only">Open sidebar</span>
@@ -48,7 +48,7 @@ const Navbar = ({ toggleSidebar }) => {
             </svg>
           </button>
         </div>
-        <div className='self-center text-xl font-semibold sm:text-2xl whitespace-nowrap font-bold'>
+        <div className='self-center text-lg font-medium sm:text-xl whitespace-nowrap text-gray-700 dark:text-gray-300'>
           { title }
         </div>
         <div className="flex items-center rounded p-1 drop-shadow hover:drop-shadow-none"> {/* bg-white dark:bg-gray-800"> */ }

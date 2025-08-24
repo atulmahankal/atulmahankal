@@ -20,14 +20,14 @@ const MainLayout = ({ children }) => {
       <Navbar toggleSidebar={ toggleSidebar } />
       <Sidebar isSidebarOpen={ isSidebarOpen } />
 
-      <main className="sm:ml-64 rounded-lg dark:border-gray-700 mt-14 overflow-auto h-[calc(100vh-3.5rem)]">
-        <div className='border-y-2 border-gray-200 border-dashed'>
-          <div className='p-2 m-2 rounded-lg supports-backdrop-blur:bg-slate-50/25 bg-slate-100/25'>
+      <main className="sm:ml-64 mt-14 overflow-auto h-[calc(100vh-3.5rem)] bg-gray-50 dark:bg-gray-800">
+        <div className='min-h-full'>
+          <div className='p-6 m-4 bg-white dark:bg-gray-900 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700'>
             <Outlet />{ children }
           </div>
         </div>
-        <footer className='p-2 text-center my-2'>
-          <p>Designed by Atul Mahankal.</p>
+        <footer className='p-4 text-center my-4 text-sm text-gray-600 dark:text-gray-400 border-t border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 mx-4 rounded-b-xl'>
+          <p>&copy; {currentYear} Atul Mahankal. All rights reserved.</p>
         </footer>
       </main >
     </>
