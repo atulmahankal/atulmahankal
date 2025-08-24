@@ -36,30 +36,95 @@ export const routes = [
     title: 'About Me',
     component: null, //AboutMePage,
     icon: <AiOutlineSolution />,
+    metas: {
+      name: {
+        title: "About Me - Atul Mahankal",
+        description: "Learn more about Atul Mahankal's background and experience.",
+        url: "/aboutme",
+        keywords: "about, profile, biography",
+      },
+      property: {
+        "og:image": "/src/assets/img/profile-img.jpg",
+        "og:image:width": "120",
+        "og:image:height": "62",
+      }
+    }
   },
   {
     path: '/experience',
     title: 'Experience',
     component: ExperiencePage,
     icon: <BiSolidBriefcase />,
+    metas: {
+      name: {
+        title: "Experience - Atul Mahankal",
+        description: "Professional experience and work history of Atul Mahankal.",
+        url: "/experience",
+        keywords: "experience, work, career, professional",
+      },
+      property: {
+        "og:image": "/src/assets/img/profile-img.jpg",
+        "og:image:width": "120",
+        "og:image:height": "62",
+      }
+    }
   },
   {
     path: '/projects',
     title: 'Projects',
     component: null, //ProjectsPage,
     icon: <FaHandshake />,
+    metas: {
+      name: {
+        title: "Projects - Atul Mahankal",
+        description: "Portfolio of projects by Atul Mahankal.",
+        url: "/projects",
+        keywords: "projects, portfolio, work, development",
+      },
+      property: {
+        "og:image": "/src/assets/img/profile-img.jpg",
+        "og:image:width": "120",
+        "og:image:height": "62",
+      }
+    }
   },
   {
     path: '/applications',
     title: 'Applications',
     component: null, //ProjectsPage,
     icon: <FaHandshake />,
+    metas: {
+      name: {
+        title: "Applications - Atul Mahankal",
+        description: "Web applications and software developed by Atul Mahankal.",
+        url: "/applications",
+        keywords: "applications, software, development, web apps",
+      },
+      property: {
+        "og:image": "/src/assets/img/profile-img.jpg",
+        "og:image:width": "120",
+        "og:image:height": "62",
+      }
+    }
   },
   {
     path: '/photography',
     title: 'Photography',
     component: null, //PhotographyPage,
     icon: <BiSolidCamera />,
+    metas: {
+      name: {
+        title: "Photography - Atul Mahankal",
+        description: "Photography portfolio by Atul Mahankal.",
+        url: "/photography",
+        keywords: "photography, photos, portfolio, gallery",
+      },
+      property: {
+        "og:image": "/src/assets/img/profile-img.jpg",
+        "og:image:width": "120",
+        "og:image:height": "62",
+      }
+    }
   },
   {
     path: '/contact',
@@ -78,5 +143,14 @@ export const routes = [
     title: 'Error',
     component: (props) => <ErrorPage errorCode="404" errorMessage="Page Not Found" {...props} />,
     icon: null,
+    metas: {
+      name: {
+        title: "Page Not Found - Atul Mahankal",
+        description: "The requested page could not be found.",
+        url: "",
+        keywords: "error, 404, not found",
+      },
+      property: null
+    }
   }
 ];
