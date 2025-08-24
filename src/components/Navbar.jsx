@@ -8,7 +8,7 @@ import { FaTwitter, FaFacebookSquare, FaInstagramSquare, FaLinkedin, FaSkype } f
 const Navbar = ({ toggleSidebar }) => {
   const location = useLocation();
   const currentRoute = routes.find(route => route.path === location.pathname);
-  const title = currentRoute ? currentRoute.title : '';
+  const title = currentRoute ? currentRoute.title : 'Page Not Found';
 
   const socialLink = [
     { icon: <FaTwitter className="transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 duration-300 text-2xl mx-2 dark:text-white" />, link: 'https://twitter.com/atulmahankal' },
@@ -18,13 +18,13 @@ const Navbar = ({ toggleSidebar }) => {
     // { icon: <FaSkype className="transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 duration-300 text-2xl mx-2 dark:text-white" />, link: 'https://join.skype.com/invite/wk3d18mj9vyZ' },
   ];
 
-  const metaname = currentRoute.metas?.name ?? null;
-  const metaproperty = currentRoute.metas?.property ?? null;
+  const metaname = currentRoute?.metas?.name ?? null;
+  const metaproperty = currentRoute?.metas?.property ?? null;
 
   return (
     <>
       <Helmet>
-        <title>{ currentRoute.title }</title>
+        <title>{ currentRoute?.title || 'Atul Mahankal' }</title>
 
         { metaname && Object.keys(metaname).map((name, index) => (
           <meta key={ index } name={ name } content={ metaname[name] } />

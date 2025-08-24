@@ -4,7 +4,7 @@ import { routes } from './routes';
 function App() {
   return (
     <>
-      <BrowserRouter basename="/">
+      <BrowserRouter basename="/atulmahankal">
         <Routes>
           { routes.map((route, index) => (
             route.component && (
