@@ -22,7 +22,7 @@ const MainLayout = ({ children }) => {
 
       <main className="sm:ml-64 mt-14 overflow-auto h-[calc(100vh-3.5rem)] bg-gray-50 dark:bg-gray-800">
         <div className='min-h-full'>
-          <div className='p-6 m-4 bg-white dark:bg-gray-900 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700'>
+          <div className='p-6 m-4'>
             <Outlet />{ children }
           </div>
         </div>

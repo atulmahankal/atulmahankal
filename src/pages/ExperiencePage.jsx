@@ -33,7 +33,7 @@ const ExperienceCard = ({ experience, index }) => {
       </div>
 
       {/* Details */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+      <div className="flex flex-col gap-2 mb-4">
         <div className="flex items-center text-gray-600 dark:text-gray-400">
           <FiCalendar className="w-4 h-4 mr-2" />
           <span className="text-sm">
@@ -389,13 +389,13 @@ const ExperiencePage = () => {
 
   return (
     <MainLayout>
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="card max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
         {/* Header Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="text-center mb-2"
         >
           <h1 className="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent mb-6">
             Professional Experience
@@ -425,9 +425,10 @@ const ExperiencePage = () => {
             </div>
           )}
         </motion.div>
+      </div>
 
         {/* Experience Cards */}
-        <div className="space-y-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
           {isLoading ? (
             // Loading state
             Array.from({ length: 3 }).map((_, index) => (
@@ -474,7 +475,6 @@ const ExperiencePage = () => {
             ))
           )}
         </div>
-      </div>
     </MainLayout>
   );
 };

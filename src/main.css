@@ -43,8 +43,9 @@ html {
 
 /* Card styles */
 .card {
-  @apply bg-white dark:bg-gray-900 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6;
+  @apply bg-white dark:bg-gray-900 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6
 }
+
 
 /* Professional transitions */
 .transition-professional {

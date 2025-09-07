@@ -7,21 +7,21 @@ import AutoLink from '@/components/AutoLink';
 
 const ContactPage = () => {
   const contacts = [
-    { 
-      icon: <FiSmartphone className='text-blue-600 dark:text-blue-400' />, 
-      title: 'Call Me', 
+    {
+      icon: <FiSmartphone className='text-blue-600 dark:text-blue-400' />,
+      title: 'Call Me',
       detail: '+919967181952',
       description: 'Mon-Fri from 10am to 6pm IST'
     },
-    { 
-      icon: <FiMail className='text-green-600 dark:text-green-400' />, 
-      title: 'Email Me', 
+    {
+      icon: <FiMail className='text-green-600 dark:text-green-400' />,
+      title: 'Email Me',
       detail: 'atulmahankal@gmail.com',
       description: 'Send me an email anytime!'
     },
-    { 
-      icon: <FiMap className='text-purple-600 dark:text-purple-400' />, 
-      title: 'Visit Me', 
+    {
+      icon: <FiMap className='text-purple-600 dark:text-purple-400' />,
+      title: 'Visit Me',
       detail: 'Neral, Karjat, Maharashtra',
       description: 'Mumbai Metropolitan Region'
     },
@@ -29,9 +29,9 @@ const ContactPage = () => {
 
   return (
     <MainLayout>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="card max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Section */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -47,7 +47,7 @@ const ContactPage = () => {
 
         <div className="grid lg:grid-cols-2 gap-16">
           {/* Contact Information */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -64,7 +64,7 @@ const ContactPage = () => {
 
             <div className="space-y-6">
               {contacts.map((item, index) => (
-                <motion.div 
+                <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -92,7 +92,7 @@ const ContactPage = () => {
             </div>
 
             {/* Social CTA */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
@@ -105,17 +105,17 @@ const ContactPage = () => {
                 Follow me for updates on my latest projects and tech insights.
               </p>
               <div className="flex space-x-3">
-                <a 
-                  href="https://twitter.com/atulmahankal" 
-                  target="_blank" 
+                <a
+                  href="https://twitter.com/atulmahankal"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="btn-primary text-sm"
                 >
                   Follow on Twitter
                 </a>
-                <a 
-                  href="https://linkedin.com/in/atulmahankal" 
-                  target="_blank" 
+                <a
+                  href="https://linkedin.com/in/atulmahankal"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="btn-secondary text-sm"
                 >
@@ -126,7 +126,7 @@ const ContactPage = () => {
           </motion.div>
 
           {/* Contact Form */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
@@ -219,8 +219,8 @@ const ContactPage = () => {
               </div>
 
               <div className="flex items-center justify-between pt-4">
-                <button 
-                  type="reset" 
+                <button
+                  type="reset"
                   className="btn-secondary"
                 >
                   Clear Form
@@ -237,7 +237,7 @@ const ContactPage = () => {
           </motion.div>
         </div>
 
-        
+
       </div>
     </MainLayout>
   );

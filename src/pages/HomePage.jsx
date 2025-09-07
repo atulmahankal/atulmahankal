@@ -8,7 +8,7 @@ import conferancePhoto from '@/assets/img/mySelf_at_conferance.png';
 const HomePage = () => {
   return (
     <MainLayout>
-      <div className="flex flex-col lg:flex-row items-center justify-between w-full gap-8">
+      <div className="card flex flex-col lg:flex-row items-center justify-between w-full gap-8">
         <div className="flex-1 flex flex-col items-end justify-start lg:items-center lg:justify-center order-1 lg:order-2">
           <div className="relative">
             <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-600 rounded-full blur-lg opacity-20"></div>
@@ -30,7 +30,7 @@ const HomePage = () => {
               <span className="font-semibold text-blue-600 dark:text-blue-400">
                 <ReactTyped
                   strings={ [
-                    "Full-Stack Developer", "UI/UX Designer", "Software Engineer", "Freelancer",
+                    "Developer", "Freelancer", "Learner",
                   ] }
                   typeSpeed={ 100 }
                   backSpeed={ 50 }
