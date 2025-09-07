@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import MainLayout from '@/layouts/MainLayout';
 import { motion } from "framer-motion";
 import { ReactTyped } from "react-typed";
@@ -49,12 +50,18 @@ const HomePage = () => {
               Your one-stop destination for professional web application development.
             </p>
             <div className="mt-8 flex flex-wrap gap-4 justify-center lg:justify-start">
-              <button className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors">
+              <Link
+                to="/projects"
+                className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors inline-block text-center"
+              >
                 View Projects
-              </button>
-              <button className="px-6 py-3 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg font-medium hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+              </Link>
+              <Link
+                to="/contact"
+                className="px-6 py-3 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg font-medium hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors inline-block text-center"
+              >
                 Contact Me
-              </button>
+              </Link>
             </div>
           </motion.div>
         </div>
