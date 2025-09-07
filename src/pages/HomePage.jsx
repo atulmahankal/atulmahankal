@@ -8,7 +8,18 @@ const HomePage = () => {
   return (
     <MainLayout>
       <div className="flex flex-col lg:flex-row items-center justify-between w-full gap-8">
-        <div className='flex-1 flex flex-col items-center lg:items-start text-center lg:text-left'>
+        <div className="flex-1 flex flex-col items-end justify-start lg:items-center lg:justify-center order-1 lg:order-2">
+          <div className="relative">
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-600 rounded-full blur-lg opacity-20"></div>
+            <img
+              className="relative rounded-full object-cover border-4 border-white dark:border-gray-800 shadow-xl"
+              alt="Profile Photo"
+              src={ conferancePhoto }
+              style={ { height: 350, width: 350 } }
+            />
+          </div>
+        </div>
+        <div className='flex-1 flex flex-col items-center lg:items-start text-center lg:text-left order-2 lg:order-1'>
           <div className="p-8">
             <h1 className="text-4xl lg:text-6xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent mb-6">
               Atul D. Mahankal
@@ -46,17 +57,6 @@ const HomePage = () => {
               </button>
             </div>
           </motion.div>
-        </div>
-        <div className="flex-1 flex flex-col items-center justify-center">
-          <div className="relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-600 rounded-full blur-lg opacity-20"></div>
-            <img
-              className="relative rounded-full object-cover border-4 border-white dark:border-gray-800 shadow-xl"
-              alt="Profile Photo"
-              src={ conferancePhoto }
-              style={ { height: 350, width: 350 } }
-            />
-          </div>
         </div>
       </div>
     </MainLayout>
