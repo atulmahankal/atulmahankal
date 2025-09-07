@@ -34,3 +34,23 @@ export const formatExperienceData = (rawData) => {
     workDescriptions: row[7] || ''
   }));
 };
+
+// Generic search categories for different report types
+export const SEARCH_CATEGORIES = {
+  // Experience search categories
+  experience: [
+    // { key: 'company', label: 'Company', description: 'Filter by company name' },
+    // { key: 'designation', label: 'Designation', description: 'Filter by job title/role' },
+    { key: 'location', label: 'Location', description: 'Filter by work location' },
+    { key: 'mode', label: 'Mode', description: 'Filter by work mode (Remote/On-site/Hybrid)' },
+    { key: 'tech', label: 'Technology', description: 'Filter by tech stack', aliases: ['technology', 'techstack'] },
+    { key: 'from', label: 'From Year', description: 'Filter by start year' },
+    { key: 'upto', label: 'Until Year', description: 'Filter by end year', aliases: ['until', 'to'] },
+  ],
+
+  // Photography search categories (example for future use)
+  photography: [],
+
+  // Projects search categories (example for future use)
+  projects: []
+};

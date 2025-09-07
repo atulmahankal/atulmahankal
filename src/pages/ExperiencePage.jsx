@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import MainLayout from '@/layouts/MainLayout';
 import { motion } from 'framer-motion';
 import { FiMapPin, FiCalendar, FiBriefcase, FiMonitor } from 'react-icons/fi';
 import axios from 'axios';
-import { buildGoogleSheetsURL, formatExperienceData, GOOGLE_SHEETS_CONFIG } from '@/utils';
+import { buildGoogleSheetsURL, formatExperienceData, GOOGLE_SHEETS_CONFIG, SEARCH_CATEGORIES } from '@/utils';
+import AdvancedSearch from '@/components/AdvancedSearch';
 
 const ExperienceCard = ({ experience, index }) => {
   return (
@@ -37,7 +39,9 @@ const ExperienceCard = ({ experience, index }) => {
           <span className="text-sm">
             {experience.from} - {experience.upto || 'Present'}
           </span>
-          <FiMapPin className="w-4 h-4 m-2" />
+        </div>
+        <div className="flex items-center text-gray-600 dark:text-gray-400">
+          <FiMapPin className="w-4 h-4 mr-2" />
           <span className="text-sm">{experience.location}</span>
         </div>
       </div>
@@ -109,6 +113,221 @@ const ExperiencePage = () => {
   const [experiences, setExperiences] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [searchFilters, setSearchFilters] = useState({ filters: {}, excludeFilters: {} });
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  // Get available values for search categories
+  const getCategoryValues = () => {
+    const values = {};
+
+    if (experiences.length > 0) {
+      // Extract unique values for each category
+      values.company = [...new Set(experiences.map(exp => exp.company).filter(Boolean))];
+      values.designation = [...new Set(experiences.map(exp => exp.designation).filter(Boolean))];
+      values.location = [...new Set(experiences.map(exp => exp.location).filter(Boolean))];
+      values.mode = [...new Set(experiences.map(exp => exp.mode).filter(Boolean))];
+      values.tech = [...new Set(experiences.flatMap(exp =>
+        exp.techStack ? exp.techStack.split(',').map(tech => tech.trim()) : []
+      ).filter(Boolean))];
+      values.from = [...new Set(experiences.map(exp => exp.from).filter(Boolean))];
+      values.upto = [...new Set(experiences.map(exp => exp.upto).filter(Boolean))];
+    }
+
+    return values;
+  };
+
+
+  // Filter experiences based on search criteria
+  const filteredExperiences = useMemo(() => {
+    const { filters = {}, excludeFilters = {} } = searchFilters;
+
+    if (!filters || (Object.keys(filters).length === 0 && Object.keys(excludeFilters).length === 0)) {
+      return experiences;
+    }
+
+    return experiences.filter((experience) => {
+      const searchableText = [
+        experience.company,
+        experience.designation,
+        experience.location,
+        experience.mode,
+        experience.techStack,
+        experience.workDescriptions,
+        experience.from,
+        experience.upto
+      ].join(' ').toLowerCase();
+
+      // Apply include filters
+      // Company filter
+      if (filters.company && !experience.company.toLowerCase().includes(filters.company.toLowerCase())) {
+        return false;
+      }
+
+      // Designation filter
+      if (filters.designation && !experience.designation.toLowerCase().includes(filters.designation.toLowerCase())) {
+        return false;
+      }
+
+      // Location filter
+      if (filters.location && !experience.location.toLowerCase().includes(filters.location.toLowerCase())) {
+        return false;
+      }
+
+      // Mode filter
+      if (filters.mode && !experience.mode.toLowerCase().includes(filters.mode.toLowerCase())) {
+        return false;
+      }
+
+      // Tech stack filter
+      if (filters.tech && !experience.techStack.toLowerCase().includes(filters.tech.toLowerCase())) {
+        return false;
+      }
+
+      // From year filter
+      if (filters.from && !experience.from.includes(filters.from)) {
+        return false;
+      }
+
+      // Until year filter
+      if (filters.upto && !experience.upto.includes(filters.upto)) {
+        return false;
+      }
+
+      // General text search (searches across all text fields)
+      if (filters.general) {
+        const searchTerm = filters.general.toLowerCase();
+        if (!searchableText.includes(searchTerm)) {
+          return false;
+        }
+      }
+
+      // Apply exclude filters
+      // Company exclude filter
+      if (excludeFilters.company && experience.company.toLowerCase().includes(excludeFilters.company.toLowerCase())) {
+        return false;
+      }
+
+      // Designation exclude filter
+      if (excludeFilters.designation && experience.designation.toLowerCase().includes(excludeFilters.designation.toLowerCase())) {
+        return false;
+      }
+
+      // Location exclude filter
+      if (excludeFilters.location && experience.location.toLowerCase().includes(excludeFilters.location.toLowerCase())) {
+        return false;
+      }
+
+      // Mode exclude filter
+      if (excludeFilters.mode && experience.mode.toLowerCase().includes(excludeFilters.mode.toLowerCase())) {
+        return false;
+      }
+
+      // Tech stack exclude filter
+      if (excludeFilters.tech && experience.techStack.toLowerCase().includes(excludeFilters.tech.toLowerCase())) {
+        return false;
+      }
+
+      // From year exclude filter
+      if (excludeFilters.from && experience.from.includes(excludeFilters.from)) {
+        return false;
+      }
+
+      // Until year exclude filter
+      if (excludeFilters.upto && experience.upto.includes(excludeFilters.upto)) {
+        return false;
+      }
+
+      // General text exclude (searches across all text fields)
+      if (excludeFilters.general) {
+        const excludeTerm = excludeFilters.general.toLowerCase();
+        if (searchableText.includes(excludeTerm)) {
+          return false;
+        }
+      }
+
+      return true;
+    });
+  }, [experiences, searchFilters]);
+
+  // Serialize filters to URL format
+  const serializeFiltersToURL = (searchData) => {
+    const { filters = {}, excludeFilters = {} } = searchData;
+    const params = new URLSearchParams();
+
+    // Add include filters
+    Object.entries(filters).forEach(([key, value]) => {
+      if (value) {
+        params.set(key, value);
+      }
+    });
+
+    // Add exclude filters with minus prefix
+    Object.entries(excludeFilters).forEach(([key, value]) => {
+      if (value) {
+        params.set(`-${key}`, value);
+      }
+    });
+
+    return params;
+  };
+
+  // Parse URL parameters to filters
+  const parseURLToFilters = (searchParams) => {
+    const filters = {};
+    const excludeFilters = {};
+
+    for (const [key, value] of searchParams.entries()) {
+      if (key.startsWith('-')) {
+        // Exclude filter
+        const actualKey = key.substring(1);
+        excludeFilters[actualKey] = value;
+      } else {
+        // Include filter
+        filters[key] = value;
+      }
+    }
+
+    return { filters, excludeFilters };
+  };
+
+  // Build search query from filters
+  const buildSearchQueryFromFilters = (searchData) => {
+    const { filters = {}, excludeFilters = {} } = searchData;
+    const queryParts = [];
+
+    // Add include filters
+    Object.entries(filters).forEach(([key, value]) => {
+      if (value) {
+        if (key === 'general') {
+          queryParts.push(value);
+        } else {
+          queryParts.push(`${key}:${value}`);
+        }
+      }
+    });
+
+    // Add exclude filters
+    Object.entries(excludeFilters).forEach(([key, value]) => {
+      if (value) {
+        if (key === 'general') {
+          queryParts.push(`-${value}`);
+        } else {
+          queryParts.push(`-${key}:${value}`);
+        }
+      }
+    });
+
+    return queryParts.join(' ');
+  };
+
+  // Handle search
+  const handleSearch = (searchData) => {
+    setSearchFilters(searchData);
+
+    // Update URL parameters
+    const params = serializeFiltersToURL(searchData);
+    setSearchParams(params);
+  };
 
   const fetchExperienceData = async () => {
     try {
@@ -134,6 +353,12 @@ const ExperiencePage = () => {
   };
 
   useEffect(() => {
+    // Parse URL parameters on component mount
+    const urlFilters = parseURLToFilters(searchParams);
+    if (Object.keys(urlFilters.filters).length > 0 || Object.keys(urlFilters.excludeFilters).length > 0) {
+      setSearchFilters(urlFilters);
+    }
+
     // Check if data is already cached
     const cachedData = sessionStorage.getItem('experienceData');
     if (cachedData) {
@@ -149,6 +374,19 @@ const ExperiencePage = () => {
     }
   }, []);
 
+  // Effect to sync search query with URL parameters
+  useEffect(() => {
+    const urlFilters = parseURLToFilters(searchParams);
+    const currentQuery = buildSearchQueryFromFilters(urlFilters);
+
+    // Update search input if URL has parameters
+    if (currentQuery) {
+      // You would need to expose setSearchQuery from AdvancedSearch component
+      // For now, we just set the filters
+      setSearchFilters(urlFilters);
+    }
+  }, [searchParams]);
+
   return (
     <MainLayout>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -162,9 +400,30 @@ const ExperiencePage = () => {
           <h1 className="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent mb-6">
             Professional Experience
           </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed mb-8">
             A journey through my professional career, showcasing the roles, technologies, and achievements that have shaped my expertise.
           </p>
+
+          {/* Search Component */}
+          <AdvancedSearch
+            onSearch={handleSearch}
+            searchCategories={SEARCH_CATEGORIES.experience}
+            categoryValues={getCategoryValues()}
+            placeholder="Search experiences..."
+            exampleQuery="mode:Remote -location:Mumbai Tally"
+            initialQuery={buildSearchQueryFromFilters(searchFilters)}
+          />
+
+          {/* Results Count */}
+          {!isLoading && (
+            <div className="mt-4 text-sm text-gray-500 dark:text-gray-400">
+              {filteredExperiences.length === experiences.length ? (
+                `Showing all ${experiences.length} experience${experiences.length !== 1 ? 's' : ''}`
+              ) : (
+                `Found ${filteredExperiences.length} of ${experiences.length} experience${experiences.length !== 1 ? 's' : ''}`
+              )}
+            </div>
+          )}
         </motion.div>
 
         {/* Experience Cards */}
@@ -206,7 +465,7 @@ const ExperiencePage = () => {
             </motion.div>
           ) : (
             // Experience cards
-            experiences.map((experience, index) => (
+            filteredExperiences.map((experience, index) => (
               <ExperienceCard
                 key={experience.id}
                 experience={experience}
