@@ -7,9 +7,14 @@ import Navbar from '../components/Navbar';
 
 const MainLayout = ({ children }) => {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
+  const [isDesktopSidebarOpen, setDesktopSidebarOpen] = useState(true);
 
   const toggleSidebar = () => {
     setSidebarOpen(!isSidebarOpen);
+  };
+
+  const toggleDesktopSidebar = () => {
+    setDesktopSidebarOpen(!isDesktopSidebarOpen);
   };
 
   // Get the current year using JavaScript's Date object
@@ -17,10 +22,10 @@ const MainLayout = ({ children }) => {
 
   return (
     <>
-      <Navbar toggleSidebar={ toggleSidebar } />
-      <Sidebar isSidebarOpen={ isSidebarOpen } />
+      <Navbar toggleSidebar={ toggleSidebar } toggleDesktopSidebar={ toggleDesktopSidebar } />
+      <Sidebar isSidebarOpen={ isSidebarOpen } isDesktopSidebarOpen={ isDesktopSidebarOpen } />
 
-      <main className="sm:ml-64 mt-14 overflow-auto h-[calc(100vh-3.5rem)] bg-gray-50 dark:bg-gray-800">
+      <main className={`${isDesktopSidebarOpen ? 'sm:ml-64' : 'sm:ml-0'} mt-14 overflow-auto h-[calc(100vh-3.5rem)] bg-gray-50 dark:bg-gray-800 transition-all duration-300`}>
         <div className='min-h-full'>
           <div className='p-6 m-4'>
             <Outlet />{ children }

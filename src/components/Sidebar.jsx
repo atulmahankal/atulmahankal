@@ -6,7 +6,7 @@ import { BiSolidContact, BiGridAlt, BiSolidCamera, BiSolidBriefcase } from "reac
 import { FaHandshake } from "react-icons/fa";
 import { AiOutlineSolution } from "react-icons/ai";
 
-function Sidebar({ isSidebarOpen }) {
+function Sidebar({ isSidebarOpen, isDesktopSidebarOpen }) {
   const menus = [
     { title: "Home", route: "/", component: <BiGridAlt /> },
     { title: "About Me", route: "/aboutme", component: <AiOutlineSolution /> },
@@ -17,7 +17,7 @@ function Sidebar({ isSidebarOpen }) {
   ];
 
   return (
-    <aside id="logo-sidebar" className={ `fixed top-0 left-0 z-40 w-64 h-screen pt-20 bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm border-r border-gray-200 dark:border-gray-700 shadow-lg transition-transform transform transform-gpu ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'} sm:transform-none` }>
+    <aside id="logo-sidebar" className={ `fixed top-0 left-0 z-40 w-64 h-screen pt-20 bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm border-r border-gray-200 dark:border-gray-700 shadow-lg transition-transform transform transform-gpu ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'} ${isDesktopSidebarOpen ? 'sm:translate-x-0' : 'sm:-translate-x-full'}` }>
       <div className="h-full px-3 pb-4 overflow-y-auto">
         <ul className="space-y-2 font-medium">
           { menus.map((item, index) => (
