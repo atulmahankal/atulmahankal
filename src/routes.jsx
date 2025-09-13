@@ -34,7 +34,13 @@ export const routes = [
   {
     path: '/aboutme',
     title: 'About Me',
-    component: (props) => <ErrorPage errorCode="Coming Soon" errorMessage="This page is under development" {...props} />,
+    component: (props) => (
+      <ErrorPage
+        errorCode="Coming Soon"
+        errorMessage="This page is under development"
+        {...props}
+      />
+    ),
     icon: <AiOutlineSolution />,
     metas: {
       name: {
@@ -72,7 +78,13 @@ export const routes = [
   {
     path: '/projects',
     title: 'Projects',
-    component: (props) => <ErrorPage errorCode="Coming Soon" errorMessage="This page is under development" {...props} />,
+    component: (props) => (
+      <ErrorPage
+        errorCode="Coming Soon"
+        errorMessage="This page is under development"
+        {...props}
+      />
+    ),
     icon: <FaHandshake />,
     metas: {
       name: {
@@ -110,7 +122,13 @@ export const routes = [
   {
     path: '/photography',
     title: 'Photography',
-    component: (props) => <ErrorPage errorCode="Coming Soon" errorMessage="This page is under development" {...props} />,
+    component: (props) => (
+      <ErrorPage
+        errorCode="Coming Soon"
+        errorMessage="This page is under development"
+        {...props}
+      />
+    ),
     icon: <BiSolidCamera />,
     metas: {
       name: {
@@ -133,7 +151,9 @@ export const routes = [
     icon: <BiSolidContact />,
     metas: {
       name: {
+        title: "Contact - Atul Mahankal",
         description: "Contact Details of Atul Mahankal.",
+        url: "/contact",
       },
       property:null
     }
@@ -141,7 +161,13 @@ export const routes = [
   {
     path: '*',
     title: 'Error',
-    component: (props) => <ErrorPage errorCode="404" errorMessage="Page Not Found" {...props} />,
+    component: (props) => (
+      <ErrorPage
+        errorCode="404"
+        errorMessage="Page Not Found"
+        {...props}
+      />
+    ),
     icon: null,
     metas: {
       name: {
@@ -154,3 +180,8 @@ export const routes = [
     }
   }
 ];
+
+// Export only the valid page paths for vite.config.js (ignore "*")
+export const routePaths = routes
+  .map(r => r.path)
+  .filter(p => p && p !== '*');

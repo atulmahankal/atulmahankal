@@ -39,7 +39,7 @@ function SideMenu({ key = null, icon = null, title, badge = null, children: wrap
       {/* Nested Items */ }
       { isExpanded && wrapperChildren && (
         <>
-            <ul className="ml-6 cursor-pointer rounded-lg bg-white dark:bg-gray-800 items-center text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+            <ul className="ml-6 cursor-pointer bg-white dark:bg-gray-800 items-center text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
           { React.Children.map(wrapperChildren, (child, index) => (
               React.cloneElement(child, { key: index })
             )) }
